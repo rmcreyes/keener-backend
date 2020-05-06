@@ -1,7 +1,7 @@
 {
   "name": "keener-backend",
   "version": "1.0.0",
-  "description": "",
+  "description": "Backend for the Keener application",
   "main": "index.js",
   "scripts": {
     "start": "node dist/app.js",
@@ -13,7 +13,7 @@
     "type": "git",
     "url": "git+https://github.com/rmcreyes/keener-backend.git"
   },
-  "author": "",
+  "author": "rmcreyes",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/rmcreyes/keener-backend/issues"
