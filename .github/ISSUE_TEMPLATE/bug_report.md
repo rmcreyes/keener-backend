@@ -1,10 +1,9 @@
 ---
 name: Bug report
 about: File if something is not working properly
-title: ''
+title: ""
 labels: bug
-assignees: rmcreyes
-
+assignees: ""
 ---
 
 **Describe the bug**

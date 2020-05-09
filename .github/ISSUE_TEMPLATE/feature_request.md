@@ -1,10 +1,9 @@
 ---
 name: Feature request
 about: File any enhancements
-title: ''
+title: ""
 labels: enhancement
-assignees: rmcreyes
-
+assignees: ""
 ---
 
 **Describe what to enhance (and how if already theorized)**
