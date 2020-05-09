@@ -8,7 +8,7 @@
     "dev": "nodemon -L src/app.ts",
     "build": "tsc -p .",
     "lint": "eslint 'src/**' --max-warnings 0",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha -r ts-node/register tests/**"
   },
   "repository": {
     "type": "git",
