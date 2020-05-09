@@ -8,4 +8,4 @@ app.get("/", (req: Request, res: Response) => {
 
 const PORT = process.env.PORT || 5000;
 
-app.listen(5000, () => console.log(`The server has started on port ${PORT}`));
+app.listen(PORT, () => console.log(`The server has started on port ${PORT}`));
