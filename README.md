@@ -1,6 +1,7 @@
 # :bulb: Keener
 
 [![Build Status](https://travis-ci.com/rmcreyes/keener-backend.svg?branch=master)](https://travis-ci.com/rmcreyes/keener-backend)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/02aeb3bb35034af78fc84d89e6e69700)](https://www.codacy.com/manual/rmcreyes/keener-backend?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=rmcreyes/keener-backend&amp;utm_campaign=Badge_Grade)
 
 The backend of an application that lets helps students make the most out of their study groups.
 
