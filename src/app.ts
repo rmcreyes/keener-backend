@@ -1,9 +1,9 @@
-import express, { Application, Request, Response, NextFunction } from 'express';
+import express, { Application, Request, Response } from "express";
 
 const app: Application = express();
 
-app.get('/', (req: Request, res: Response, next: NextFunction) => {
-    res.send('Hello world!');
+app.get("/", (req: Request, res: Response) => {
+  res.send("Hello world!");
 });
 
-app.listen(5000, () => console.log('The server is running!'));
+app.listen(5000, () => console.log("The server is running!"));
