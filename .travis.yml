@@ -4,4 +4,4 @@ node_js:
 script:
   - npm install
   - npm install --only=dev
-  - scripts/ci_check.sh
+  - scripts/run_build.sh
