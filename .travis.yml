@@ -1,7 +1,11 @@
 language: node_js
 node_js:
   - 12.16.3
-script:
+services:
+  - docker
+install:
   - npm install
   - npm install --only=dev
+script:
   - scripts/run_build.sh
+  - scripts/build_docker_image.sh
