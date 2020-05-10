@@ -1,3 +1,4 @@
+# NOTE: This Dockerfile is meant for development since it uses dev dependencies.
 FROM node:12.16.3
 
 # Create working directory
