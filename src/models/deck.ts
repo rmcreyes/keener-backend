@@ -45,6 +45,15 @@ export default class Deck {
   }
 
   /**
+   * Setter method for a deck's name.
+   *
+   * @param newDeckName name to replace this deck's original name with
+   */
+  set deckName(newDeckName: string) {
+    this._deckName = newDeckName;
+  }
+
+  /**
    * Getter method for the deck's creator's ID.
    */
   get creatorId(): number {
