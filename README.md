@@ -1,7 +1,8 @@
 # :bulb: Keener
 
 [![Build Status](https://travis-ci.com/rmcreyes/keener-backend.svg?branch=master)](https://travis-ci.com/rmcreyes/keener-backend)
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/02aeb3bb35034af78fc84d89e6e69700)](https://www.codacy.com/manual/rmcreyes/keener-backend?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=rmcreyes/keener-backend&amp;utm_campaign=Badge_Grade)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/02aeb3bb35034af78fc84d89e6e69700)](https://www.codacy.com/manual/rmcreyes/keener-backend?utm_source=github.com&utm_medium=referral&utm_content=rmcreyes/keener-backend&utm_campaign=Badge_Grade)
+[![codecov](https://codecov.io/gh/rmcreyes/keener-backend/branch/master/graph/badge.svg)](https://codecov.io/gh/rmcreyes/keener-backend)
 
 The backend of an application that lets helps students make the most out of their study groups.
 
