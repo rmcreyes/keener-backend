@@ -9,3 +9,5 @@ install:
 script:
   - scripts/run_build.sh
   - scripts/build_docker_image.sh
+after_success:
+  - scripts/run_coverage.sh
