@@ -33,4 +33,11 @@ export default class StudyGroup {
   get groupName(): string {
     return this._groupName;
   }
+
+  /**
+   * Setter method for a study group's new name.
+   */
+  set groupName(newGroupName: string) {
+    this._groupName = newGroupName;
+  }
 }

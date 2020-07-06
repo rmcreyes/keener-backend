@@ -33,4 +33,11 @@ export default class User {
   get username(): string {
     return this._username;
   }
+
+  /**
+   * Setter method for a user's new username.
+   */
+  set username(newUsername: string) {
+    this._username = newUsername;
+  }
 }
