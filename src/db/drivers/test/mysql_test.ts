@@ -1,14 +1,10 @@
 import { Sequelize, Model } from "sequelize";
-import MySqlDriver from "./../mysql";
-import {
-  DbLookupError,
-  DbConnectionError,
-  DbInternalError,
-} from "./../../errors";
-import User from "./../../../models/user";
-import StudyGroup from "./../../../models/group";
-import Flashcard from "./../../../models/flashcard";
-import Deck from "./../../../models/deck";
+import MySqlDriver from "db/drivers/mysql";
+import { DbLookupError, DbConnectionError, DbInternalError } from "db/errors";
+import User from "models/user";
+import StudyGroup from "models/group";
+import Flashcard from "models/flashcard";
+import Deck from "models/deck";
 
 // mocking Sequelize's authenticate() function
 let successfullyAuthenticate: boolean;

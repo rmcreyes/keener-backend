@@ -1,4 +1,4 @@
-import Deck from "./../deck";
+import Deck from "models/deck";
 
 /**
  * Unit test suite for the flashcard deck model.

@@ -1,4 +1,4 @@
-import Flashcard from "./../flashcard";
+import Flashcard from "models/flashcard";
 
 /**
  * Unit test suite for the flashcard model.

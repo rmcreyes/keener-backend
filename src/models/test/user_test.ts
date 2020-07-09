@@ -1,4 +1,4 @@
-import User from "./../user";
+import User from "models/user";
 
 /**
  * Unit test suite for the user model.
