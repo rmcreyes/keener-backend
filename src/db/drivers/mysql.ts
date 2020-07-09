@@ -1,10 +1,10 @@
 import { Sequelize, DataTypes, Model, BuildOptions } from "sequelize";
-import DatabaseDriver from "./driver";
-import { DbLookupError, DbConnectionError, DbInternalError } from "./../errors";
-import User from "./../../models/user";
-import StudyGroup from "./../../models/group";
-import Flashcard from "./../../models/flashcard";
-import Deck from "./../../models/deck";
+import DatabaseDriver from "db/drivers/driver";
+import { DbLookupError, DbConnectionError, DbInternalError } from "db/errors";
+import User from "models/user";
+import StudyGroup from "models/group";
+import Flashcard from "models/flashcard";
+import Deck from "models/deck";
 
 // TypeScript has trouble generating a Model definition with sequelize.define,
 // so we need to define some types to help out with that

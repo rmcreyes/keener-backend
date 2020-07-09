@@ -1,9 +1,9 @@
-import DatabaseAdapter from "./../adapter";
-import DatabaseDriver from "./../drivers/driver";
-import User from "./../../models/user";
-import StudyGroup from "./../../models/group";
-import Flashcard from "./../../models/flashcard";
-import Deck from "./../../models/deck";
+import DatabaseAdapter from "db/adapter";
+import DatabaseDriver from "db/drivers/driver";
+import User from "models/user";
+import StudyGroup from "models/group";
+import Flashcard from "models/flashcard";
+import Deck from "models/deck";
 
 let succeedConnection: boolean;
 let succeedGetUser: boolean;
