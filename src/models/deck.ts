@@ -1,4 +1,14 @@
 /**
+ * Interface for deck info serialization.
+ */
+export interface DeckInfo {
+  readonly id: number;
+  readonly deckName: string;
+  readonly creatorId: number;
+  readonly groupId: number;
+}
+
+/**
  * Data model for a flashcard deck.
  */
 export default class Deck {
@@ -65,5 +75,19 @@ export default class Deck {
    */
   get groupId(): number {
     return this._groupId;
+  }
+
+  /**
+   * Serialize the properties of this deck instance into a JSON object.
+   *
+   * @returns JSON object containing the info of this deck instance
+   */
+  public serialize(): DeckInfo {
+    return {
+      id: this._id,
+      deckName: this._deckName,
+      creatorId: this._creatorId,
+      groupId: this._groupId,
+    };
   }
 }
