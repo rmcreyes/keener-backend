@@ -71,10 +71,10 @@ class FakeDriver extends DatabaseDriver {
     });
   }
 
-  public updateUser(user: User): Promise<void> {
+  public updateUser(user: User): Promise<User> {
     return new Promise((resolve, reject) => {
       if (succeedUpdateUser) {
-        resolve();
+        resolve(new User(0, "username"));
       } else {
         reject(new Error(`${user.id}`));
       }
@@ -111,10 +111,10 @@ class FakeDriver extends DatabaseDriver {
     });
   }
 
-  public updateStudyGroup(studyGroup: StudyGroup): Promise<void> {
+  public updateStudyGroup(studyGroup: StudyGroup): Promise<StudyGroup> {
     return new Promise((resolve, reject) => {
       if (succeedUpdateStudyGroup) {
-        resolve();
+        resolve(new StudyGroup(0, "groupName"));
       } else {
         reject(new Error(`${studyGroup.id}`));
       }
@@ -156,10 +156,10 @@ class FakeDriver extends DatabaseDriver {
     });
   }
 
-  public updateFlashcard(flashcard: Flashcard): Promise<void> {
+  public updateFlashcard(flashcard: Flashcard): Promise<Flashcard> {
     return new Promise((resolve, reject) => {
       if (succeedUpdateFlashcard) {
-        resolve();
+        resolve(new Flashcard(0, "question", "answer", 0, 0));
       } else {
         reject(new Error(`${flashcard.id}`));
       }
@@ -200,10 +200,10 @@ class FakeDriver extends DatabaseDriver {
     });
   }
 
-  public updateDeck(deck: Deck): Promise<void> {
+  public updateDeck(deck: Deck): Promise<Deck> {
     return new Promise((resolve, reject) => {
       if (succeedUpdateDeck) {
-        resolve();
+        resolve(new Deck(0, "deckName", 0, 0));
       } else {
         reject(new Error(`${deck.id}`));
       }

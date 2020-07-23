@@ -742,7 +742,7 @@ it("should resolve when successfully updating a user", async () => {
   passUserCreate = true;
   passUserModelSave = true;
   let createdUser: User;
-  let gottenUser: User;
+  let updatedUser: User;
   let passed: boolean;
 
   try {
@@ -755,21 +755,16 @@ it("should resolve when successfully updating a user", async () => {
   createdUser.username = "otherUsername";
 
   try {
-    await mySql.updateUser(createdUser);
-  } catch (err) {
-    expect(false).toBeTruthy();
-  }
-
-  try {
-    gottenUser = await mySql.getUser(createdUser.id);
+    updatedUser = await mySql.updateUser(createdUser);
     passed = true;
   } catch (err) {
-    gottenUser = new User(99, "failed");
+    updatedUser = new User(99, "failed");
     passed = false;
   }
+  expect(updatedUser.username);
 
   expect(passed).toBeTruthy();
-  expect(gottenUser.username).toEqual("otherUsername");
+  expect(updatedUser.username).toEqual("otherUsername");
 });
 
 it("should throw DbLookupError if it attempts to get a study group that does not exist", async () => {
@@ -991,7 +986,7 @@ it("should resolve when successfully updating a study group", async () => {
   passStudyGroupCreate = true;
   passStudyGroupModelSave = true;
   let createdStudyGroup: StudyGroup;
-  let gottenStudyGroup: StudyGroup;
+  let updatedStudyGroup: StudyGroup;
   let passed: boolean;
 
   try {
@@ -1004,21 +999,15 @@ it("should resolve when successfully updating a study group", async () => {
   createdStudyGroup.groupName = "otherGroupname";
 
   try {
-    await mySql.updateStudyGroup(createdStudyGroup);
-  } catch (err) {
-    expect(false).toBeTruthy();
-  }
-
-  try {
-    gottenStudyGroup = await mySql.getStudyGroup(createdStudyGroup.id);
+    updatedStudyGroup = await mySql.updateStudyGroup(createdStudyGroup);
     passed = true;
   } catch (err) {
-    gottenStudyGroup = new StudyGroup(99, "failed");
+    updatedStudyGroup = new StudyGroup(99, "failed");
     passed = false;
   }
 
   expect(passed).toBeTruthy();
-  expect(gottenStudyGroup.groupName).toEqual("otherGroupname");
+  expect(updatedStudyGroup.groupName).toEqual("otherGroupname");
 });
 
 it("should throw DbLookupError if it attempts to get a flashcard that does not exist", async () => {
@@ -1271,7 +1260,7 @@ it("should resolve when successfully updating a flashcard", async () => {
   passFlashcardCreate = true;
   passFlashcardModelSave = true;
   let createdFlashcard: Flashcard;
-  let gottenFlashcard: Flashcard;
+  let updatedFlashcard: Flashcard;
   let passed: boolean;
 
   try {
@@ -1289,21 +1278,15 @@ it("should resolve when successfully updating a flashcard", async () => {
   createdFlashcard.answer = "otheranswer";
 
   try {
-    await mySql.updateFlashcard(createdFlashcard);
-  } catch (err) {
-    expect(false).toBeTruthy();
-  }
-
-  try {
-    gottenFlashcard = await mySql.getFlashcard(createdFlashcard.id);
+    updatedFlashcard = await mySql.updateFlashcard(createdFlashcard);
     passed = true;
   } catch (err) {
-    gottenFlashcard = new Flashcard(99, "failed", "failed", 99, 99);
+    updatedFlashcard = new Flashcard(99, "failed", "failed", 99, 99);
     passed = false;
   }
 
   expect(passed).toBeTruthy();
-  expect(gottenFlashcard.answer).toEqual("otheranswer");
+  expect(updatedFlashcard.answer).toEqual("otheranswer");
 });
 
 it("should throw DbLookupError if it attempts to get a deck that does not exist", async () => {
@@ -1529,7 +1512,7 @@ it("should resolve when successfully updating a deck", async () => {
   passDeckCreate = true;
   passDeckModelSave = true;
   let createdDeck: Deck;
-  let gottenDeck: Deck;
+  let updatedDeck: Deck;
   let passed: boolean;
 
   try {
@@ -1542,19 +1525,13 @@ it("should resolve when successfully updating a deck", async () => {
   createdDeck.deckName = "otherdeckname";
 
   try {
-    await mySql.updateDeck(createdDeck);
-  } catch (err) {
-    expect(false).toBeTruthy();
-  }
-
-  try {
-    gottenDeck = await mySql.getDeck(createdDeck.id);
+    updatedDeck = await mySql.updateDeck(createdDeck);
     passed = true;
   } catch (err) {
-    gottenDeck = new Deck(99, "failed", 99, 99);
+    updatedDeck = new Deck(99, "failed", 99, 99);
     passed = false;
   }
 
   expect(passed).toBeTruthy();
-  expect(gottenDeck.deckName).toEqual("otherdeckname");
+  expect(updatedDeck.deckName).toEqual("otherdeckname");
 });
