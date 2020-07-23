@@ -276,11 +276,11 @@ export default class MySqlDriver extends DatabaseDriver {
    * Update a user in our users table.
    *
    * @param user user to update with the updated fields
-   * @returns promise that resolves if the user was updated
+   * @returns promise containing the updated user if resolved
    * @throws DbLookupError if the user to update could not be found
    * @throws DbInternalError if the update operation fails
    */
-  public updateUser(user: User): Promise<void> {
+  public updateUser(user: User): Promise<User> {
     return new Promise((resolve, reject) => {
       let msg: string;
       this.sequelizeUserModel
@@ -295,7 +295,8 @@ export default class MySqlDriver extends DatabaseDriver {
             mySqlUser
               .save()
               .then(() => {
-                resolve();
+                const user = new User(mySqlUser.id, mySqlUser.username);
+                resolve(user);
               })
               .catch((err) => {
                 msg = `Failed to update user with ID ${mySqlUser.id} - ${err}`;
@@ -346,8 +347,7 @@ export default class MySqlDriver extends DatabaseDriver {
    * Adds a study group to the study groups table.
    *
    * @param groupName group name of the study group to create
-   * @returns promise containing newly created study group if resolved,
-   *          and an error message if rejected
+   * @returns promise containing newly created study group if resolved
    * @throws DbInternalError if the database operation fails
    */
   public createStudyGroup(groupName: string): Promise<StudyGroup> {
@@ -408,11 +408,11 @@ export default class MySqlDriver extends DatabaseDriver {
    * Update a study group in our study groups table.
    *
    * @param studyGroup study group to update with the updated fields
-   * @returns promise that resolves if the study group was updated
+   * @returns promise containing updated study group if resolved
    * @throws DbLookupError if the user to update could not be found
    * @throws DbInternalError if the update operation fails
    */
-  public updateStudyGroup(studyGroup: StudyGroup): Promise<void> {
+  public updateStudyGroup(studyGroup: StudyGroup): Promise<StudyGroup> {
     return new Promise((resolve, reject) => {
       let msg: string;
       this.sequelizeStudyGroupModel
@@ -427,7 +427,11 @@ export default class MySqlDriver extends DatabaseDriver {
             mySqlStudyGroup
               .save()
               .then(() => {
-                resolve();
+                const studyGroup = new StudyGroup(
+                  mySqlStudyGroup.id,
+                  mySqlStudyGroup.groupName
+                );
+                resolve(studyGroup);
               })
               .catch((err) => {
                 msg = `Failed to update study group with ID ${mySqlStudyGroup.id} - ${err}`;
@@ -558,11 +562,11 @@ export default class MySqlDriver extends DatabaseDriver {
    * Update a flashcard in our flashcards table.
    *
    * @param flashcard flashcard to update with the updated fields
-   * @returns promise that resolves if the flashcard was updated
+   * @returns promise containing updated flashcard if resolved
    * @throws DbLookupError if the flashcard to update could not be found
    * @throws DbInternalError if the update operation fails
    */
-  public updateFlashcard(flashcard: Flashcard): Promise<void> {
+  public updateFlashcard(flashcard: Flashcard): Promise<Flashcard> {
     return new Promise((resolve, reject) => {
       let msg: string;
       this.sequelizeFlashcardModel
@@ -580,7 +584,14 @@ export default class MySqlDriver extends DatabaseDriver {
             mySqlFlashcard
               .save()
               .then(() => {
-                resolve();
+                const flashcard = new Flashcard(
+                  mySqlFlashcard.id,
+                  mySqlFlashcard.question,
+                  mySqlFlashcard.answer,
+                  mySqlFlashcard.creatorId,
+                  mySqlFlashcard.deckId
+                );
+                resolve(flashcard);
               })
               .catch((err) => {
                 msg = `Failed to update flashcard with ID ${flashcard.id} - ${err}`;
@@ -706,11 +717,11 @@ export default class MySqlDriver extends DatabaseDriver {
    * Update a deck in our decks table.
    *
    * @param deck deck to update with the updated fields
-   * @returns promise that resolves if the deck was updated
+   * @returns promise containing updated deck if resolved
    * @throws DbLookupError if the deck to update could not be found
    * @throws DbInternalError if the update operation fails
    */
-  public updateDeck(deck: Deck): Promise<void> {
+  public updateDeck(deck: Deck): Promise<Deck> {
     return new Promise((resolve, reject) => {
       let msg: string;
       this.sequelizeDeckModel
@@ -727,7 +738,13 @@ export default class MySqlDriver extends DatabaseDriver {
             mySqlDeck
               .save()
               .then(() => {
-                resolve();
+                const deck = new Deck(
+                  mySqlDeck.id,
+                  mySqlDeck.deckName,
+                  mySqlDeck.creatorId,
+                  mySqlDeck.groupId
+                );
+                resolve(deck);
               })
               .catch((err) => {
                 msg = `Failed to update deck with ID ${deck.id} - ${err}`;

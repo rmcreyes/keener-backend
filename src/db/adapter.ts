@@ -91,15 +91,15 @@ export default class DatabaseAdapter {
    * Update a user in the database.
    *
    * @param user user to update with the updated fields
-   * @returns promise that resolves if the user was updated
+   * @returns promise containing the updated user if resolved
    * @throws DbLookupError if the user to update could not be found
    * @throws DbInternalError if the update operation fails
    */
-  public updateUser(user: User): Promise<void> {
+  public updateUser(user: User): Promise<User> {
     return new Promise((resolve, reject) => {
       this.driver
         .updateUser(user)
-        .then(() => resolve())
+        .then((user) => resolve(user))
         .catch((err) => reject(err));
     });
   }
@@ -159,15 +159,15 @@ export default class DatabaseAdapter {
    * Update a user in the database.
    *
    * @param studyGroup study group to update with the updated fields
-   * @returns promise that resolves if the study group was updated
+   * @returns promise containing the updated study group if resolved
    * @throws DbLookupError if the study group to update could not be found
    * @throws DbInternalError if the update operation fails
    */
-  public updateStudyGroup(studyGroup: StudyGroup): Promise<void> {
+  public updateStudyGroup(studyGroup: StudyGroup): Promise<StudyGroup> {
     return new Promise((resolve, reject) => {
       this.driver
         .updateStudyGroup(studyGroup)
-        .then(() => resolve())
+        .then((studyGroup) => resolve(studyGroup))
         .catch((err) => reject(err));
     });
   }
@@ -234,15 +234,15 @@ export default class DatabaseAdapter {
    * Update a flashcard in the database.
    *
    * @param flashcard flashcard to update with the updated fields
-   * @returns promise that resolves if the flashcard was updated
+   * @returns promise containing the updated flashcard if resolved
    * @throws DbLookupError if the flashcard to update could not be found
    * @throws DbInternalError if the update operation fails
    */
-  public updateFlashcard(flashcard: Flashcard): Promise<void> {
+  public updateFlashcard(flashcard: Flashcard): Promise<Flashcard> {
     return new Promise((resolve, reject) => {
       this.driver
         .updateFlashcard(flashcard)
-        .then(() => resolve())
+        .then((flashcard) => resolve(flashcard))
         .catch((err) => reject(err));
     });
   }
@@ -307,15 +307,15 @@ export default class DatabaseAdapter {
    * Update a deck in the database.
    *
    * @param deck deck to update with the updated fields
-   * @returns promise that resolves if the deck was updated
+   * @returns promise containing the updated deck if resolved
    * @throws DbLookupError if the deck to update could not be found
    * @throws DbInternalError if the update operation fails
    */
-  public updateDeck(deck: Deck): Promise<void> {
+  public updateDeck(deck: Deck): Promise<Deck> {
     return new Promise((resolve, reject) => {
       this.driver
         .updateDeck(deck)
-        .then(() => resolve())
+        .then((deck) => resolve(deck))
         .catch((err) => reject(err));
     });
   }

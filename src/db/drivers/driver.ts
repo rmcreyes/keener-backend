@@ -11,11 +11,11 @@ export default abstract class DatabaseDriver {
   abstract getUser(id: number): Promise<User>;
   abstract createUser(username: string): Promise<User>;
   abstract deleteUser(id: number): Promise<void>;
-  abstract updateUser(user: User): Promise<void>;
+  abstract updateUser(user: User): Promise<User>;
   abstract getStudyGroup(id: number): Promise<StudyGroup>;
   abstract createStudyGroup(groupName: string): Promise<StudyGroup>;
   abstract deleteStudyGroup(id: number): Promise<void>;
-  abstract updateStudyGroup(studyGroup: StudyGroup): Promise<void>;
+  abstract updateStudyGroup(studyGroup: StudyGroup): Promise<StudyGroup>;
   abstract getFlashcard(id: number): Promise<Flashcard>;
   abstract createFlashcard(
     question: string,
@@ -24,7 +24,7 @@ export default abstract class DatabaseDriver {
     deckId: number
   ): Promise<Flashcard>;
   abstract deleteFlashcard(id: number): Promise<void>;
-  abstract updateFlashcard(flashcard: Flashcard): Promise<void>;
+  abstract updateFlashcard(flashcard: Flashcard): Promise<Flashcard>;
   abstract getDeck(id: number): Promise<Deck>;
   abstract createDeck(
     deckName: string,
@@ -32,5 +32,5 @@ export default abstract class DatabaseDriver {
     groupId: number
   ): Promise<Deck>;
   abstract deleteDeck(id: number): Promise<void>;
-  abstract updateDeck(deck: Deck): Promise<void>;
+  abstract updateDeck(deck: Deck): Promise<Deck>;
 }
