@@ -26,7 +26,7 @@ export default class User {
   }
 
   /**
-   * Getter method for the user's username.
+   * Getter method for the user's username. yaa
    *
    * @returns username of the user
    */
