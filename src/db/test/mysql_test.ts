@@ -1,5 +1,5 @@
 import { Sequelize, Model } from "sequelize";
-import MySqlDriver from "db/drivers/mysql";
+import MySqlFacade from "db/mysql";
 import { DbLookupError, DbConnectionError, DbInternalError } from "db/errors";
 import User from "models/user";
 import StudyGroup from "models/group";
@@ -446,7 +446,7 @@ Sequelize.prototype.authenticate = mockAuthenticate;
 Sequelize.prototype.sync = mockSync;
 Sequelize.prototype.define = mockDefine;
 
-let mySql: MySqlDriver;
+let mySql: MySqlFacade;
 
 beforeEach(async () => {
   // reset mock functions
@@ -473,7 +473,7 @@ beforeEach(async () => {
   createdDeckNum = 0;
 
   // redefine mySql structure
-  mySql = new MySqlDriver("fakedb", "fakeuser", "fakepass", "fakehost");
+  mySql = new MySqlFacade("fakedb", "fakeuser", "fakepass", "fakehost");
 });
 
 it("should throw DbConnectionError if it cannot successfully authenticate with the database", async () => {
