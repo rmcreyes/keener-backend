@@ -3,10 +3,9 @@ import StudyGroup from "models/group";
 import Flashcard from "models/flashcard";
 import Deck from "models/deck";
 /**
- * Abstract class for a database driver.
- * Implementations of database drivers need to implement the functions declared here.
+ * Abstract class for a database facade.
  */
-export default abstract class DatabaseDriver {
+export default abstract class DatabaseFacade {
   abstract setUp(): Promise<void>;
   abstract getUser(id: number): Promise<User>;
   abstract createUser(username: string): Promise<User>;

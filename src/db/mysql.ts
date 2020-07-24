@@ -1,5 +1,5 @@
 import { Sequelize, DataTypes, Model, BuildOptions } from "sequelize";
-import DatabaseDriver from "db/drivers/driver";
+import DatabaseFacade from "db/facade";
 import { DbLookupError, DbConnectionError, DbInternalError } from "db/errors";
 import User from "models/user";
 import StudyGroup from "models/group";
@@ -50,9 +50,9 @@ type StaticSequelizeDeckModel = typeof Model & {
 };
 
 /**
- * MySQL implementation of a database driver.
+ * MySQL implementation of a database facade.
  */
-export default class MySqlDriver extends DatabaseDriver {
+export default class MySqlFacade extends DatabaseFacade {
   private sequelize: Sequelize;
   private sequelizeUserModel: StaticSequelizeUserModel;
   private sequelizeStudyGroupModel: StaticSequelizeStudyGroupModel;
@@ -60,7 +60,7 @@ export default class MySqlDriver extends DatabaseDriver {
   private sequelizeDeckModel: StaticSequelizeDeckModel;
 
   /**
-   * Constructor of the MySQL adapter.
+   * Constructor of the MySQL facade.
    *
    * @param databaseName name of the MySQL database to use
    * @param username username used to authenticate against the database
