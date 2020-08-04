@@ -33,3 +33,14 @@ it("should be able to get the ID of the deck it belongs to", () => {
   const flashcard: Flashcard = new Flashcard(0, "marco", "polo", 0, 0);
   expect(flashcard.deckId).toEqual(0);
 });
+
+it("should be able to serialize itself into a JSON object", () => {
+  const flashcard: Flashcard = new Flashcard(0, "marco", "polo", 0, 0);
+  const flashcardInfo = flashcard.serialize();
+  expect(flashcardInfo.id).toEqual(0);
+  expect(flashcardInfo.question).toEqual("marco");
+  expect(flashcardInfo.answer).toEqual("polo");
+  expect(flashcardInfo.creatorId).toEqual(0);
+  expect(flashcardInfo.deckId).toEqual(0);
+  expect(Object.keys(flashcardInfo).length).toEqual(5);
+});

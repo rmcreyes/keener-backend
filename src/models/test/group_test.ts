@@ -18,3 +18,11 @@ it("should be able to set a new group name", () => {
   group.groupName = "newGroupName";
   expect(group.groupName).toEqual("newGroupName");
 });
+
+it("should be able to serialize itself into a JSON object", () => {
+  const group: StudyGroup = new StudyGroup(0, "groupName");
+  const studyGroupInfo = group.serialize();
+  expect(studyGroupInfo.id).toEqual(0);
+  expect(studyGroupInfo.groupName).toEqual("groupName");
+  expect(Object.keys(studyGroupInfo).length).toEqual(2);
+});

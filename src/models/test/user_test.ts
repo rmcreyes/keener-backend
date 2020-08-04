@@ -18,3 +18,11 @@ it("should be able to set a new username", () => {
   user.username = "newUsername";
   expect(user.username).toEqual("newUsername");
 });
+
+it("should be able to serialize itself into a JSON object", () => {
+  const user: User = new User(0, "username");
+  const userInfo = user.serialize();
+  expect(userInfo.id).toEqual(0);
+  expect(userInfo.username).toEqual("username");
+  expect(Object.keys(userInfo).length).toEqual(2);
+});

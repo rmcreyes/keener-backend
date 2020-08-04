@@ -1,4 +1,12 @@
 /**
+ * Interface for study group info serialization.
+ */
+export interface StudyGroupInfo {
+  readonly id: number;
+  readonly groupName: string;
+}
+
+/**
  * Data model for a study group.
  */
 export default class StudyGroup {
@@ -39,5 +47,17 @@ export default class StudyGroup {
    */
   set groupName(newGroupName: string) {
     this._groupName = newGroupName;
+  }
+
+  /**
+   * Serialize the properties of this study group instance into a JSON object.
+   *
+   * @returns JSON object containing the info of this study group instance
+   */
+  public serialize(): StudyGroupInfo {
+    return {
+      id: this._id,
+      groupName: this._groupName,
+    };
   }
 }

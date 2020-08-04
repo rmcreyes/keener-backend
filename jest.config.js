@@ -5,4 +5,5 @@ module.exports = {
   },
   testRegex: "/test/.*\\.ts$",
   moduleDirectories: ["node_modules", "src"],
+  coveragePathIgnorePatterns: ["src/db/mockable.ts"],
 };

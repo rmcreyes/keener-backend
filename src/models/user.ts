@@ -1,4 +1,12 @@
 /**
+ * Interface for user info serialization.
+ */
+export interface UserInfo {
+  readonly id: number;
+  readonly username: string;
+}
+
+/**
  * Data model for a user.
  */
 export default class User {
@@ -39,5 +47,17 @@ export default class User {
    */
   set username(newUsername: string) {
     this._username = newUsername;
+  }
+
+  /**
+   * Serialize the properties of this user instance into a JSON object.
+   *
+   * @returns JSON object containing the info of this user instance
+   */
+  public serialize(): UserInfo {
+    return {
+      id: this._id,
+      username: this._username,
+    };
   }
 }

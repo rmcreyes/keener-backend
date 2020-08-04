@@ -1,4 +1,15 @@
 /**
+ * Interface for flashcard info serialization.
+ */
+export interface FlashcardInfo {
+  readonly id: number;
+  readonly question: string;
+  readonly answer: string;
+  readonly creatorId: number;
+  readonly deckId: number;
+}
+
+/**
  * Data model for a flashcard.
  */
 export default class Flashcard {
@@ -83,5 +94,20 @@ export default class Flashcard {
    */
   get deckId(): number {
     return this._deckId;
+  }
+
+  /**
+   * Serialize the properties of this flashcard instance into a JSON object.
+   *
+   * @returns JSON object containing the info of this flashcard instance
+   */
+  public serialize(): FlashcardInfo {
+    return {
+      id: this._id,
+      question: this._question,
+      answer: this._answer,
+      creatorId: this._creatorId,
+      deckId: this._deckId,
+    };
   }
 }

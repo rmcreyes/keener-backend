@@ -28,3 +28,13 @@ it("should be able to get the ID of its group", () => {
   const deck: Deck = new Deck(0, "deckName", 0, 0);
   expect(deck.groupId).toEqual(0);
 });
+
+it("should be able to serialize itself into a JSON object", () => {
+  const deck: Deck = new Deck(0, "deckName", 0, 0);
+  const deckInfo = deck.serialize();
+  expect(deckInfo.id).toEqual(0);
+  expect(deckInfo.deckName).toEqual("deckName");
+  expect(deckInfo.creatorId).toEqual(0);
+  expect(deckInfo.groupId).toEqual(0);
+  expect(Object.keys(deckInfo).length).toEqual(4);
+});
