@@ -155,8 +155,8 @@ export default class MySqlFacade extends DatabaseFacade {
   /**
    * Confirms authentication with the database and sets up the required tables.
    *
-   * @returns a promise that attempts to authenticate
-   *          with the database and set up the tables
+   * @returns a promise that resolves if we are able to successfully authenticate
+              and synchronize with the database
    * @throws DbConnectionError if something goes wrong when connecting to
    *         or synchronizing with the database
    */
@@ -186,10 +186,10 @@ export default class MySqlFacade extends DatabaseFacade {
   }
 
   /**
-   * Gets a user from the database given their ID.
+   * Gets a user from the database.
    *
    * @param id ID of the user to get
-   * @returns promise containing the desired user if resolved
+   * @returns promise that resolves with the desired user if found
    * @throws DbLookupError if the user could not be found
    * @throws DbInternalError if the database operation fails
    */
@@ -215,10 +215,10 @@ export default class MySqlFacade extends DatabaseFacade {
   }
 
   /**
-   * Adds a user to the users table.
+   * Adds a user to the database.
    *
    * @param username username of the user to create
-   * @returns promise containing newly created user if resolved
+   * @returns promise that resolves with the newly created user if the creation was successful
    * @throws DbInternalError if the database operation fails
    */
   public createUser(username: string): Promise<User> {
@@ -237,7 +237,7 @@ export default class MySqlFacade extends DatabaseFacade {
   }
 
   /**
-   * Delete a user from our users table.
+   * Deletes a user from the database.
    *
    * @param id ID of the user to delete
    * @returns promise that resolves if the user was deleted
@@ -273,10 +273,10 @@ export default class MySqlFacade extends DatabaseFacade {
   }
 
   /**
-   * Update a user in our users table.
+   * Updates a user in the database.
    *
    * @param user user to update with the updated fields
-   * @returns promise containing the updated user if resolved
+   * @returns promise that resolves with the updated user if the update was successful
    * @throws DbLookupError if the user to update could not be found
    * @throws DbInternalError if the update operation fails
    */
@@ -312,10 +312,10 @@ export default class MySqlFacade extends DatabaseFacade {
   }
 
   /**
-   * Gets a study group from the database given its ID.
+   * Gets a study group from the database.
    *
    * @param id ID of the study group to get
-   * @returns promise containing the desired study group if resolved
+   * @returns promise that resolves with the desired study group if found
    * @throws DbLookupError if the study group could not be found
    * @throws DbInternalError if the database operation fails
    */
@@ -344,10 +344,10 @@ export default class MySqlFacade extends DatabaseFacade {
   }
 
   /**
-   * Adds a study group to the study groups table.
+   * Adds a study group to the database.
    *
    * @param groupName group name of the study group to create
-   * @returns promise containing newly created study group if resolved
+   * @returns promise that resolves with the newly created study group if the creation was successful
    * @throws DbInternalError if the database operation fails
    */
   public createStudyGroup(groupName: string): Promise<StudyGroup> {
@@ -369,7 +369,7 @@ export default class MySqlFacade extends DatabaseFacade {
   }
 
   /**
-   * Delete a study group from our study groups table.
+   * Delete a study group from the database.
    *
    * @param id ID of the study group to delete
    * @returns promise that resolves if the study group was deleted
@@ -405,10 +405,10 @@ export default class MySqlFacade extends DatabaseFacade {
   }
 
   /**
-   * Update a study group in our study groups table.
+   * Update a study group in the database.
    *
    * @param studyGroup study group to update with the updated fields
-   * @returns promise containing updated study group if resolved
+   * @returns promise that resolves with the updated study group if the update was successful
    * @throws DbLookupError if the user to update could not be found
    * @throws DbInternalError if the update operation fails
    */
@@ -447,10 +447,10 @@ export default class MySqlFacade extends DatabaseFacade {
   }
 
   /**
-   * Gets a flashcard from the database given its ID.
+   * Gets a flashcard from the database.
    *
    * @param id ID of the flashcard to get
-   * @returns promise containing the desired flashcard if resolved
+   * @returns promise that resolves with the desired flashcard if found
    * @throws DbLookupError if the flashcard could not be found
    * @throws DbInternalError if the database operation fails
    */
@@ -482,13 +482,13 @@ export default class MySqlFacade extends DatabaseFacade {
   }
 
   /**
-   * Adds a flashcard to the flashcards table.
+   * Adds a flashcard to the database.
    *
    * @param question question of the flashcard to create
    * @param answer answer of the flashcard to create
    * @param creatorId ID of the user who created this flashcard
    * @param deckId ID of the deck this flashcard belongs to
-   * @returns promise containing newly created flashcard if resolved
+   * @returns promise that reoslves with the newly created flashcard if the creation was successful
    * @throws DbInternalError if the database operation fails
    */
   public createFlashcard(
@@ -523,7 +523,7 @@ export default class MySqlFacade extends DatabaseFacade {
   }
 
   /**
-   * Delete a flashcard from our flashcards table.
+   * Delete a flashcard from the database.
    *
    * @param id ID of the flashcard to delete
    * @returns promise that resolves if the flashcard was deleted
@@ -559,10 +559,10 @@ export default class MySqlFacade extends DatabaseFacade {
   }
 
   /**
-   * Update a flashcard in our flashcards table.
+   * Update a flashcard in the database.
    *
    * @param flashcard flashcard to update with the updated fields
-   * @returns promise containing updated flashcard if resolved
+   * @returns promise that resolves with the updated flashcard if the update was successful
    * @throws DbLookupError if the flashcard to update could not be found
    * @throws DbInternalError if the update operation fails
    */
@@ -607,10 +607,10 @@ export default class MySqlFacade extends DatabaseFacade {
   }
 
   /**
-   * Gets a deck from the database given its ID.
+   * Gets a deck from the database.
    *
    * @param id ID of the deck to get
-   * @returns promise containing the desired deck if resolved
+   * @returns promise that resolves with the desired deck if found
    * @throws DbLookupError if the deck could not be found
    * @throws DbInternalError if the database operation fails
    */
@@ -641,12 +641,12 @@ export default class MySqlFacade extends DatabaseFacade {
   }
 
   /**
-   * Adds a deck to the decks table.
+   * Adds a deck to the database.
    *
    * @param deckName name of the deck to create
    * @param creatorId ID of the user who created this deck
    * @param groupId ID of the group this deck belongs to
-   * @returns promise containing newly created deck if resolved
+   * @returns promise that resolves with the newly created deck if the creation was successful
    * @throws DbInternalError if the database operation fails
    */
   public createDeck(
@@ -678,7 +678,7 @@ export default class MySqlFacade extends DatabaseFacade {
   }
 
   /**
-   * Delete a deck from our decks table.
+   * Delete a deck from the database.
    *
    * @param id ID of the deck to delete
    * @returns promise that resolves if the deck was deleted
@@ -714,10 +714,10 @@ export default class MySqlFacade extends DatabaseFacade {
   }
 
   /**
-   * Update a deck in our decks table.
+   * Update a deck in our database.
    *
    * @param deck deck to update with the updated fields
-   * @returns promise containing updated deck if resolved
+   * @returns promise that resolves with the updated deck if the update was successful
    * @throws DbLookupError if the deck to update could not be found
    * @throws DbInternalError if the update operation fails
    */
