@@ -29,3 +29,11 @@ For development purposes, you can run our `dev` script to have `nodemon` watch t
 ```bash
 npm run dev
 ```
+
+## Environment Configuration
+
+We use `dontenv` for easy configuration of environment variables. Create a file named `.env` in the root of your clone of the repository that looks like this:
+
+```bash
+PORT=5000
+```
