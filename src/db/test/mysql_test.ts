@@ -1,10 +1,10 @@
 import { Sequelize, Model } from "sequelize";
-import MySqlFacade from "db/mysql";
-import { DbLookupError, DbConnectionError, DbInternalError } from "db/errors";
-import User from "models/user";
-import StudyGroup from "models/group";
-import Flashcard from "models/flashcard";
-import Deck from "models/deck";
+import MySqlFacade from "../mysql";
+import { DbLookupError, DbConnectionError, DbInternalError } from "../errors";
+import User from "../../models/user";
+import StudyGroup from "../../models/group";
+import Flashcard from "../../models/flashcard";
+import Deck from "../../models/deck";
 
 // mocking Sequelize's authenticate() function
 let successfullyAuthenticate: boolean;

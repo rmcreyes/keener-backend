@@ -1,12 +1,15 @@
-import ApiHandler from "apis/handler";
-import MockableDbFacade from "db/mockable";
-import User from "models/user";
-import StudyGroup from "models/group";
-import Flashcard from "models/flashcard";
-import Deck from "models/deck";
-import { DbLookupError, DbInternalError } from "db/errors";
-import { ApiUnknownError } from "apis/errors";
-import { SinonStubbedClass, createSinonStubInstance } from "utils/sinon_stub";
+import ApiHandler from "../handler";
+import MockableDbFacade from "../../db/mockable";
+import User from "../../models/user";
+import StudyGroup from "../../models/group";
+import Flashcard from "../../models/flashcard";
+import Deck from "../../models/deck";
+import { DbLookupError, DbInternalError } from "../../db/errors";
+import { ApiUnknownError } from "../errors";
+import {
+  SinonStubbedClass,
+  createSinonStubInstance,
+} from "../../utils/sinon_stub";
 import { assert } from "sinon";
 
 let apiHandler: ApiHandler;

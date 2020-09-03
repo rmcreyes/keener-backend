@@ -1,4 +1,4 @@
-import StudyGroup from "models/group";
+import StudyGroup from "../group";
 
 /**
  * Unit test suite for the study group model.

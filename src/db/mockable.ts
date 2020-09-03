@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import DatabaseFacade from "db/facade";
-import User from "models/user";
-import StudyGroup from "models/group";
-import Flashcard from "models/flashcard";
-import Deck from "models/deck";
+import DatabaseFacade from "./facade";
+import User from "../models/user";
+import StudyGroup from "../models/group";
+import Flashcard from "../models/flashcard";
+import Deck from "../models/deck";
 
 /**
  * Database facade implementation for stubbing/mocking in unit tests.
