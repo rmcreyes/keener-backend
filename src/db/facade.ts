@@ -1,7 +1,7 @@
-import User from "models/user";
-import StudyGroup from "models/group";
-import Flashcard from "models/flashcard";
-import Deck from "models/deck";
+import User from "../models/user";
+import StudyGroup from "../models/group";
+import Flashcard from "../models/flashcard";
+import Deck from "../models/deck";
 /**
  * Abstract class for a database facade.
  */

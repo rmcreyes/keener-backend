@@ -1,7 +1,7 @@
-import DatabaseFacade from "db/facade";
-import ApiResponse from "apis/response";
-import { ApiUnknownError } from "apis/errors";
-import { DbLookupError, DbInternalError } from "db/errors";
+import DatabaseFacade from "../db/facade";
+import ApiResponse from "./response";
+import { ApiUnknownError } from "./errors";
+import { DbLookupError, DbInternalError } from "../db/errors";
 
 /**
  * Object to handle API logic.
